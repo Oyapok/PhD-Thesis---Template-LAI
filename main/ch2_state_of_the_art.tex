@@ -1,0 +1,258 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{10.5pt}
+
+\begin{document}
+\chapter{State of the art}
+
+An example of a table
+
+\begin{table}[h]
+    \begin{center}
+        {\footnotesize
+        \rowcolors{1}{black!5}{black!10}
+        \begin{tabular}{l r}
+            \rowcolor{black} \textbf{\color{white} Parameters} & \textbf{\color{white} Value}\\
+            Material & Ferrite N87 \\
+            Geometry & E 25/13/7 \\
+            Air gap & \SI{0.25}{\milli\meter} \\
+            Max energy stored in core $\mathcal{E}_{mag,max}$ & \SI{1.3}{\milli\joule}\\
+            Winding method & \makecell[tr]{Un-segmented Continuous \\ Overlapping}\\
+            Primary inductance $L_p$ & \SI{72.5}{\micro\henry}\\
+            Primary leakage inductance $L_{lp}$ & \SI{1.6}{\micro\henry}\\
+            Primary winding capacitance $C_{p}$ & \SI{12.6}{\nano\farad}\\
+            Primary winding resistance $R_p$ & \SI{0.5}{\ohm}\\
+            Secondary inductance $L_s$ & \SI{31.7}{\milli\henry}\\
+            Secondary leakage inductance $L_{ls}$ & \SI{774.2}{\micro\henry}\\
+            Secondary winding capacitance $C_{s}$ & \SI{28.5}{\pico\farad}\\
+            Secondary winding resistance $R_s$ & \SI{16}{\ohm}\\
+            Inter-winding capacitance $C_W$ & \SI{51.6}{\pico\farad}
+        \end{tabular}}
+        \caption{This is an example of a table}
+        \label{tab_components_7k}
+    \end{center}
+\end{table}
+
+An example of equations
+
+\begin{center}
+\begin{IEEEeqnarray}{lCl}
+    u_{in}(t) = V_{in} & ~\laplace~ & U_{in}(s) = \frac{V_{in}}{s} \label{eq_uin_1}\\
+    u_{C_p}(t) = \frac{1}{C_p}\int_{0}^{t} i_C(\tau)d\tau & ~\laplace~ & U_{C_p}(s) = \frac{1}{s C_p}I_C(s)\label{eq_ucp_1}\\
+    u_{R_p}(t) = R_p i_L(t) & ~\laplace~ & U_{R_p}(s) = R_p I_L(s)\label{eq_urp_1}\\
+    u_{L_p}(t) = (L_p+L_{lp})\frac{d i_L(t)}{dt} & ~\laplace~ & U_{L_p}(s) = \label{eq_ulp_1} (L_p+L_{lp})(s I_L(s)-i_L(0))\\
+    i_{in}(t) = i_C(t)+i_L(t) & ~\laplace~ & I_{in}(s) = I_C(s)+I_L(s)\label{eq_iin_1}
+\end{IEEEeqnarray}
+\end{center}
+
+How I annotate
+
+\begin{figure}[h]
+    \centering
+        \begin{tikzpicture}
+            \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=\textwidth]{example-image-a}};
+            \begin{scope}[x={(image.south east)},y={(image.north west)}]
+                \draw[rainbowyellow,ultra thick,rounded corners] (0.03,0.15) rectangle ++(0.22,0.45);
+                \draw (0.14,0.08) node[align=center,font=\small,fill=white,opacity=0.6,text opacity=1,rounded corners]{Bidirectional\\ Flyback};
+                \draw[rainbowyellow,ultra thick,rounded corners] (0.57,0.3) rectangle ++(0.10,0.22);
+                \draw (0.62,0.262) node[align=center,font=\small,fill=white,opacity=0.6,text opacity=1,rounded corners]{DEA Tube};
+                \draw[rainbowyellow,ultra thick,rounded corners] (0.7,0.53) rectangle ++(0.19,0.45);
+                \draw (0.795,0.492) node[align=center,font=\small,fill=white,opacity=0.6,text opacity=1,rounded corners]{Water Column};
+            \end{scope}
+        \end{tikzpicture}
+    \caption{Caption}
+    \label{fig:my_label}
+\end{figure}
+      
+\clearpage  
+Other possibilities
+
+\begin{figure}[h!t]
+  \begin{annotatedFigure}
+    {\includegraphics[width=1.0\linewidth]{example-image-a}}
+    \annotatedFigureBoxCustom{0.2,0.6}{0.4,0.8}{A}{0.2,0.6}{red}{blue}{green}{black}%bl
+    \annotatedFigureBoxCustom{0.222,0.284}{0.3743,0.4934}{B}{0.3743,0.4934}{red}{blue}{green}{black}%tr
+    \annotatedFigureBoxCustom{0.555,0.784}{0.6815,0.874}{C}{0.555,0.784}{red}{blue}{green}{black}%bl
+    \annotatedFigureBoxCustom{0.557,0.322}{0.8985,0.5269}{D}{0.8985,0.5269}{red}{blue}{green}{black}%tr
+  \end{annotatedFigure}
+
+  \caption{A code can be generated to make this on the website\\ \href{https://ff.cx/latex-overlay-generator/\#/}{https://ff.cx/latex-overlay-generator/\#/}}
+  \label{fig:teaser}
+\end{figure}
+
+\clearpage
+To zoom in pictures. Note, in "settings\_custom.tex", overleaf may highlight you the text in red as if there was an error (in the .tex file). No need to check, there isn't. It's a bug that comes from the code linked to the zoom in picture stuff. If it bothers you and you don't need the zoom, just comment it.
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[zoomboxarray,
+        zoomboxes below,
+        zoomboxarray columns=3,
+        zoomboxarray rows=1,
+        connect zoomboxes,
+        zoombox paths/.append style={ultra thick, red}]
+        \node [image node] {\includegraphics[width =.4\columnwidth]{example-image-a} };
+        \zoombox[magnification=2]{0.175,0.72}
+        \zoombox[magnification=2]{0.71,0.5}
+        \zoombox[magnification=10]{0.86,0.38}
+    \end{tikzpicture}
+    \caption{Blabla (a) and bloblo (b)}
+    \label{fig_Vout_plateau}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[zoomboxarray]
+        \node [image node] { \includegraphics[width=0.45\textwidth]{example-image-a} };
+        \zoombox{0.175,0.9}
+        \zoombox[magnification=2]{0.7,0.6}
+        \zoombox{0.15,0.3}
+        \zoombox[magnification=10]{0.86,0.35}
+    \end{tikzpicture}
+    \caption{The National Gallery of Canada}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[spy using outlines={magnification=3,rectangle,width=.2\textwidth, height=.3\textwidth,blue,connect spies}]
+    \node (n1) at (0,0) {\includegraphics[width=.6\textwidth]{example-image-a}};
+    \spy on (-1,-1) in node at (2,1);
+\end{tikzpicture}
+\caption{The National Gallery of Canada}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[spy using outlines={magnification=7,rectangle,size=3cm,blue}]
+    \begin{axis}[xmin=0,ymin=0,xlabel=X,ylabel=Y,xtick distance=3,ytick distance=200]
+    \addplot[domain=0:9,samples=40,red,mark=*,mark size=2pt]{x^3};
+    \coordinate (c1) at (axis cs: 2.5,10);
+    \coordinate (c2) at (axis cs: 3,600);
+    \spy on (c1) in node[fill=white] at (c2);
+    \end{axis}
+\end{tikzpicture}
+\end{figure}
+
+\clearpage
+Various styles of arrows. Check "settings\_custom.tex" for their settings.
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[scale=0.9, transform shape]
+    \foreach \size [
+    evaluate=\size as \width using \size,
+    evaluate=\size as \bend using (\size-7)*5,
+    evaluate=\size as \angle using \size*36+180,
+    evaluate=\angle as \angleplushalf using \angle+18,
+    ] in {1,2,...,10}{
+      \draw[double round cap-stealth=\width pt colored by green!50!black and lime]
+      (0,0) ++(\angle:1.2) to[bend right=\bend] ++(\angle:3);
+    
+      \draw[double round cap-latex=\width pt colored by black and yellow]
+      (0,0) ++(\angleplushalf:1.2) to[bend right=\bend] ++(\angleplushalf:3);
+    }
+    
+    \foreach \size [
+    evaluate=\size as \width using \size,
+    evaluate=\size as \bend using (\size-7)*5,
+    evaluate=\size as \angle using \size*36,
+    evaluate=\angle as \angleplushalf using \angle+18,
+    ] in {1,2,...,10}{
+      \draw[double -stealth=\width pt colored by blue!50!black and white]
+      (0,-9) ++(\angle:1.2) to[bend right=\bend] ++(\angle:3);
+    
+      \draw[double -latex=\width pt colored by red and yellow]
+      (0,-9) ++(\angleplushalf:1.2) to[bend right=\bend] ++(\angleplushalf:3);
+    }
+    \end{tikzpicture}%
+\end{figure}
+
+\clearpage
+An example of animation. The pdf must be opened in a compatible reader such as Adobe Acrobat.
+
+\animategraphics[controls=none,width=1in,loop,autoplay,poster=first,scale=3]{12}{images/spongebob/spongebob-}{0}{27}
+
+An example of electrical circuit
+
+\begin{circuitikz}[scale = 1, transform shape]
+    \definecolor{mygreen}{RGB}{0,204,0}
+    % Driving amplifier
+	\draw (0,0) to[/tikz/circuitikz/bipoles/length=.9cm,V,l=$12V$] ++(0,2) coordinate(Vinu) coordinate(a) -- ++(3.5,0) coordinate(b) -- ++(0,-0.5) coordinate(Lp1u)
+	    to[/tikz/circuitikz/bipoles/length=1.5cm,L,name=Lp1,color=rainbowmagenta] (Lp1u |- 0,0) coordinate(Lp1d);
+    \draw let \p{Vinu}=(Vinu) in  ($(0,0)+(.8,0)$) coordinate(Ldd) to[/tikz/circuitikz/bipoles/length=1.5cm,L,name=Ld,color=rainbowmagenta] ++($(0,0.75*\y{Vinu})$)
+		coordinate(Ldu) -- ++(0.35,0) to[/tikz/circuitikz/bipoles/length=.6cm,D] ++($(0,0.25*\y{Vinu})$) coordinate(Du)
+		
+		($(Ldd)+(.7,0)$) coordinate(Ldd2) to[/tikz/circuitikz/bipoles/length=1.5cm,L,name=Ld2,color=rainbowlightpurple] ++($(0,0.75*\y{Vinu})$) 
+		coordinate(Ldu2) -- ++(-0.35,0)
+	    
+	    (Ldd) -- ++(0.9,0) node[nigfete,rotate=-90,anchor=S,scale=0.75] (mos){}
+			(mos.gate) ++(0.2,0) node[anchor=south] {$V_{pwm}$}
+            (mos.drain) -- (Lp1d)
+            (mos.source) -- (0,0);
+    \draw[thick,color=rainbowmagenta] ($(Lp1.left)+(0.3,0)$) -- ($(Lp1.right)+(0.3,0)$);
+    \draw ($(Lp1.left)+(-0.2,0)$) node[circle,fill,inner sep=1.5pt,color=rainbowmagenta]{};
+    \draw[thick,color=rainbowmagenta] ($(Ld.left)+(-0.3,0)$) -- ($(Ld.right)+(-0.3,0)$);
+    \draw ($(Ld.left)+(0.2,0)$) node[circle,fill,inner sep=1.5pt,color=rainbowmagenta]{};
+    \draw[thick,color=rainbowlightpurple] ($(Ld2.left)+(-0.3,0)$) -- ($(Ld2.right)+(-0.3,0)$);
+    \draw ($(Ld2.left)+(0.2,0)$) node[circle,fill,inner sep=1.5pt,color=rainbowlightpurple]{};
+    \draw[rainbowgreen,thick,dashed] ($(Du)+(-0.8,0.1)$) -| ($(mos.drain)+(-0.05,-0.4)$) -| cycle;
+    \draw[rainbowgreen] ($(Ldd)+(-0.5,-0.2)$) node[anchor=west]{\scriptsize Driving Amplifier};
+    \draw (0,0) node[/tikz/circuitikz/monopoles/ground/width/.initial=.18,ground]{};
+    
+    % Lower driving circuit
+    \draw (Lp1d) ++(0.7,0) coordinate(Ls1d)
+        to[/tikz/circuitikz/bipoles/length=1.5cm,L,name=Ls1,color=rainbowmagenta] ++ (0,1.5) coordinate(Ls1u) -- ++(1,0) coordinate(Dbl)
+    	to[/tikz/circuitikz/bipoles/length=.8cm,D] ++(1,0)
+    	to[/tikz/circuitikz/bipoles/length=.8cm,R] ++(1,0) coordinate(R10br);
+    \draw (R10br) node[pnp,anchor=E,scale = 0.9](pnp1){}
+		(pnp1.B) to[/tikz/circuitikz/bipoles/length=0.8cm,R] ++(-1,0) -| (Dbl)
+		(pnp1.C) |- (Ls1d);
+    \draw (R10br) ++(0.5,0) coordinate(Rvertb) to[/tikz/circuitikz/bipoles/length=0.8cm,R] (Rvertb |- Ls1d);
+    \draw (R10br) ++(1,0) node[nigfete,anchor=G] (mosb){}
+        (mosb.gate) -- (R10br)
+    	(mosb.source) |- (Ls1d);
+    \draw[thick,dashed,rainboworange] ($(mosb.gate) + (0,-0.9)$) -| ($(mosb.drain) + (0.5,0.4)$) -| cycle;
+    \draw[rainboworange] ($(mosb.source) + (0.3,-0.45)$) node[anchor = west,rotate=90]{\scriptsize 4.5kV MOSFET};
+    \draw[thick,dashed,rainbowblue] ($(Ls1d)+(0.7,-0.1)$) -| ($(R10br)+(0.8,0.4)$) -| cycle;
+    \draw[rainbowblue] ($(Ls1d)+(0.65,0.2)$) node[anchor=west]{\scriptsize Driving Cricuit};
+    \draw[thick,color=rainbowmagenta] ($(Ls1.left)+(-0.3,0)$) -- ($(Ls1.right)+(-0.3,0)$);
+    \draw ($(Ls1.right)+(0.2,0)$) node[circle,fill,inner sep=1.5pt,color=rainbowmagenta]{};
+    \draw let \p{mosbS}=(mosb.source) in (\x{mosbS},0) -- ++(1,0) node[/tikz/circuitikz/monopoles/ground/width/.initial=.18,ground]{};
+    
+    % Middle driving circuit
+    \draw let \p{mosbD}=(mosb.drain), \p{Ls1u}=(Ls1u) in (\x{Ls1u},\y{mosbD}) coordinate(Ls2d);
+    \draw (Ls2d) to[/tikz/circuitikz/bipoles/length=1.5cm,L,name=Ls2,color=rainbowlightpurple] ++ (0,1.5) coordinate(Ls2u) -- ++(1,0) coordinate(Dtl)
+        to[/tikz/circuitikz/bipoles/length=.8cm,D] ++(1,0)
+        to[/tikz/circuitikz/bipoles/length=.8cm,R] ++(1,0) coordinate(R10tr);
+    \draw (R10tr) node[pnp,anchor=E,scale=0.9](pnp2){}
+        (pnp2.B) to[/tikz/circuitikz/bipoles/length=0.8cm,R] ++(-1,0) -| (Dtl)
+        (pnp2.C) |- (Ls2d);
+    \draw (R10tr) ++(0.5,0) coordinate(Rvertt) to[/tikz/circuitikz/bipoles/length=0.8cm,R] (Rvertt |- Ls2d);
+    \draw (R10tr) ++(1,0) node[nigfete,anchor=G] (most){}
+    			(most.gate) -- (R10tr)
+    			(most.source) |- (Ls2d)
+    			(most.drain) -- ++(0,0.6) to[/tikz/circuitikz/bipoles/length=.8cm,D,invert] ++(0,0.8) to[short,-*] ++(1,0) coordinate(VD);
+    \draw[thick,dashed,rainboworange] ($(most.gate)+(0,-0.9)$) -| ($(most.drain)+(0.5,0.4)$) -| cycle;
+    \draw[rainboworange] ($(most.source)+(0.3,-0.45)$) node[anchor = west,rotate=90]{\scriptsize 4.5kV MOSFET};
+    \draw[thick,dashed,rainbowblue] ($(Ls2d)+(0.7,-0.1)$) -| ($(R10tr)+(0.8,0.4)$) -| cycle;
+    \draw[rainbowblue] ($(Ls2d)+(0.65,0.2)$) node[anchor=west]{\scriptsize Driving Cricuit};
+    \draw[thick,color=rainbowlightpurple] ($(Ls2.left)+(-0.3,0)$) -- ($(Ls2.right)+(-0.3,0)$);
+    \draw ($(Ls2.right)+(0.2,0)$) node[circle,fill,inner sep=1.5pt,color=rainbowlightpurple]{};
+    \draw[mygreen] (VD) node[circle,fill,inner sep=1.5pt]{};
+    \draw[mygreen] (VD) node[anchor = south]{$V_D$};
+    
+    \draw let \p{Vinu}=(Vinu) in (Ls2d) ++(-0.7,0) coordinate(Lp2d) to[/tikz/circuitikz/bipoles/length=1.5cm,L,name=Ls1,mirror,name=Lp2,color=rainbowlightpurple] ++(0,1.5) coordinate(Lp2u) -- ++(-1,0) -- ++(0,-2.05)
+        (Lp2d) -- ++(-0.5,0) to [kinky cross=(a)--(b), kinky crosses=right] ++(0,-2.54);
+    \draw[thick,color=rainbowlightpurple] ($(Lp2.left)+(0.3,0)$) -- ($(Lp2.right)+(0.3,0)$);
+    \draw ($(Lp2.right)+(-0.2,0)$) node[circle,fill,inner sep=1.5pt,color=rainbowlightpurple]{};
+    
+    % Parasitic and compensation capacitors
+    \draw[thick,color=rainbowred] ($(most.drain)+(0,0.5)$) -- ++(1,0) to[/tikz/circuitikz/bipoles/length=.8cm,C,l^=$C_{c}$] ($(most.source)+(1,-0.5)$) -- ++(-1,0);
+    \draw[thick,color=rainbowred] (Lp1d) ++(-0.3,0) -- ++(0,-0.3) to[/tikz/circuitikz/bipoles/length=.8cm,C,l_=$C_{tw}$] ($(Ls1d)+(0.5,-0.3)$) coordinate(Ctwr) to [kinky cross=(Ls1d)--(pnp1.C), kinky crosses=left] ++(0,1) to [kinky cross=(Ls1u)--(Dbl), kinky crosses=left] ++(0,1) -- (Ctwr |- Ls2d);
+\end{circuitikz}%
+
+\vspace*{\fill}
+\noindent\hrulefill \\
+\textbf{\large Publications related to this chapter :}
+
+\underline{R. Mottet}, M. Almanza, L. Pniak, A. Boegli and Y. Perriard, \textit{"Ultra-High-Voltage (7-kV) Bidirectional Flyback Converter Used to Drive Capacitive Actuators,"} in IEEE Transactions on Industry Applications, vol. 57, no. 5, pp. 5145-5156, Sept.-Oct. 2021, doi: 10.1109/TIA.2021.3094460.
+\end{document}
