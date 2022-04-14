@@ -80,8 +80,10 @@
 % \usetikzlibrary{external}
 % \tikzexternalize[prefix=tikz/]            % To reduce compilation time by reusing a once compiled pgf plot
 \pgfkeys{/pgf/number format/.cd,1000 sep={\,}}
+
 \newcommand{\tikzFiguresScale}{0.8}
 
+% New command to create the "kinky line" or line jumping over the other in electrical circuits
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
     \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
 \usepackage[siunitx,europeanresistors,EFvoltages]{circuitikz} % To have the european convention for the drawing of electrical components. Also to have the current and voltage arrows going from high to low potential

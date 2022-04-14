@@ -9,7 +9,21 @@
 \markboth{Introduction}{Introduction}
 % \addcontentsline{toc}{chapter}{Introduction}
 
+\section{Important notes}
+Important things to keep the template working :
+\begin{enumerate}
+    \item Do not touch (or only if absolutely necessary) the settings in "settings\_epfl\_template.tex" 
+    \item If you need to add packages or new commands, put them in "settings\_custom.tex"
+    \item You can (and should) compile each chapter separately.
+    \item To add an additional chapter, copy the .tex file of an existing one, rename it accordingly and copy the lines in "main.tex" accordingly.
+    \item Do not remove or change lines 3 and 4 of the chapters .tex files ("\textbackslash setlength\{\textbackslash parindent\}\{0pt\}" and "\textbackslash setlength\{\textbackslash parskip\}\{10.5pt\}") otherwise the page layout will be messed up between the separate chapter compilation and the final main compilation.
+    \item Put your bibliography items in "bibliography.bib". You can change the style of the bibliography if you really want to in "settings\_epfl\_template.tex"
+    \item I suggest you create a folder for each chapter to store their respective images. Otherwise its gonna be a mess...
+\end{enumerate}
+
 \section{Color palettes}
+These are the color palettes I used throughout my manuscript. If you need different ones or more colors, you can create color palettes using this website : \href{https://coolors.co/generate}{https://coolors.co}.
+
 The color definitions is in "settings\_custom.tex"
 
 \begin{tikzpicture}

@@ -46,18 +46,26 @@ An example of equations
 \end{IEEEeqnarray}
 \end{center}
 
-How I annotate
+An equation with a box around it.
+
+\begin{whitebox}
+    \begin{IEEEeqnarray}{rCl}
+        i_{L}(t) = \frac{V_{in}}{R_p}(1-e^{-\frac{R_p}{L_p+L_{lp}}t}) \label{eq_iin_t_1}
+    \end{IEEEeqnarray}
+\end{whitebox}
+        
+How I annotate. You can draw anything you want using tikz commands.
 
 \begin{figure}[h]
     \centering
         \begin{tikzpicture}
             \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=\textwidth]{example-image-a}};
             \begin{scope}[x={(image.south east)},y={(image.north west)}]
-                \draw[rainbowyellow,ultra thick,rounded corners] (0.03,0.15) rectangle ++(0.22,0.45);
+                \draw[rainbowyellow,ultra thick,rounded corners, dashed] (0.03,0.15) rectangle ++(0.22,0.45);
                 \draw (0.14,0.08) node[align=center,font=\small,fill=white,opacity=0.6,text opacity=1,rounded corners]{Bidirectional\\ Flyback};
-                \draw[rainbowyellow,ultra thick,rounded corners] (0.57,0.3) rectangle ++(0.10,0.22);
+                \draw[rainbowred,ultra thick,rounded corners] (0.57,0.3) rectangle ++(0.10,0.22);
                 \draw (0.62,0.262) node[align=center,font=\small,fill=white,opacity=0.6,text opacity=1,rounded corners]{DEA Tube};
-                \draw[rainbowyellow,ultra thick,rounded corners] (0.7,0.53) rectangle ++(0.19,0.45);
+                \draw[rainbowyellow] (0.7,0.53) rectangle ++(0.19,0.45);
                 \draw (0.795,0.492) node[align=center,font=\small,fill=white,opacity=0.6,text opacity=1,rounded corners]{Water Column};
             \end{scope}
         \end{tikzpicture}
@@ -251,6 +259,9 @@ An example of electrical circuit
 \end{circuitikz}%
 
 \vspace*{\fill}
+% To use this, remove this comment and the line of text below but you must keep the "\vspace*{\fill}" line !
+I put a list of all publications related to the corresponding chapter at the end after the chapter's conclusion. (Idea from Sean Thomas).
+
 \noindent\hrulefill \\
 \textbf{\large Publications related to this chapter :}
 
